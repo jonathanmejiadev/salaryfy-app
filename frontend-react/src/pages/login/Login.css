@@ -1,0 +1,34 @@
+.login-container {
+  margin-top: 150px;
+}
+
+.login-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.login-title > h1 {
+  font-size: 35px;
+}
+
+.login-title > img {
+  height: 80px;
+  width: 80px;
+}
+
+.alert-error {
+  margin: 5px 0 5px 0;
+}
+
+.recruiter-info {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.recruiter-info > p {
+  font-size: 14px;
+}

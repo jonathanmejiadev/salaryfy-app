@@ -1,0 +1,11 @@
+.navbar.container {
+  position: fixed;
+}
+
+.button-title {
+  display: flex;
+  flex-grow: 1;
+}
+.button-content {
+  margin-left: 5px !important;
+}

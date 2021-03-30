@@ -1,0 +1,23 @@
+.add-button {
+  margin-top: 15vh;
+  display: flex;
+  justify-content: center;
+}
+
+.alert-container {
+  display: flex;
+  justify-content: center;
+}
+
+.loading {
+  margin-top: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .add-button {
+    margin-top: 12vh;
+  }
+}

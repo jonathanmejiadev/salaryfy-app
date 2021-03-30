@@ -1,0 +1,27 @@
+.avatar-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 4px;
+}
+
+.typography {
+  text-align: center;
+  font-size: 30px;
+  margin: 0 0 10px 0;
+  font-weight: bold;
+}
+
+.avatar-content {
+  margin: 0 2px 0 2px;
+}
+.grid-container {
+  margin-top: 6px;
+}
+
+.card-data {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+}
