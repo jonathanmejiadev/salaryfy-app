@@ -50,7 +50,6 @@ export const completeJob = (jobId, trueOrFalse) => {
             'Authorization': localStorage.getItem('token')
         }
     }).then(response => {
-        console.log(response);
         return response.data;
     }).catch(err => {
         console.log(err);
