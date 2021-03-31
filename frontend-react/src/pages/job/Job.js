@@ -108,8 +108,6 @@ const Job = () => {
     };
     updateJob(id, jobUpdate)
       .then((response) => {
-        //console.log(response);
-        //Snackbar message: your working time has been saved
         setSnackbarMessage('Your working time has been saved');
         setTypeSnackbar('success');
         setOpenSnackbar(true);

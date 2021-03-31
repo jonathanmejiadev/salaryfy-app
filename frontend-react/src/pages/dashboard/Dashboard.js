@@ -63,7 +63,6 @@ const Dashboard = () => {
         setOpenSnackbar(false);
     };
 
-    //no deberia pedir cards al backend si son las mismas,averiguar eso
     useEffect(() => {
         setLoading(true);
         getJobs().then(response => {
