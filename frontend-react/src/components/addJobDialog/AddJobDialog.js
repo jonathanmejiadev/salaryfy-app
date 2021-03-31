@@ -38,6 +38,7 @@ const AddJobDialog = ({ openDialog, setOpenDialog }) => {
         };
         await createJob(jobFormData);
         setOpenDialog(false);
+        setChipData([]);
     };
 
     const handleClose = () => {
