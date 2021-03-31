@@ -86,7 +86,7 @@ const Cards = ({
   );
 
   const handleFinishJob = () => {
-    //Esta seguro que quiere temrminar el trabajo?
+    //dialog: delete question
     completeJob(id, true)
       .then((response) => {
         getJobs().then((response) => {
@@ -121,21 +121,18 @@ const Cards = ({
             <Grid item xs={6}>
               <span style={{ color: "white" }}>Earnings</span>
             </Grid>
-
             <Grid item xs={6} className="card-data">
               <span style={{ color: "#07EDB0" }}> {`$ ${earnings}`}</span>
             </Grid>
             <Grid item xs={6}>
               <span style={{ color: "white" }}>Working Time</span>
             </Grid>
-
             <Grid item xs={6} className="card-data">
               {time}
             </Grid>
             <Grid item xs={6}>
               <span style={{ color: "white" }}>Created at</span>
             </Grid>
-
             <Grid item xs={6} className="card-data">
               {date}
             </Grid>

@@ -107,11 +107,11 @@ const History = () => {
   const handleBackToWork = (jobId) => {
     completeJob(jobId, false)
       .then((response) => {
+        setOpenSnackbar(true);
+        setSnackbarMessage('Your job has been returned!');
         getCompletedJobs()
           .then((response) => {
             setJobs(response.data);
-            setOpenSnackbar(true);
-            setSnackbarMessage('Your job has been returned!');
           })
       })
       .catch((err) => {
@@ -122,11 +122,11 @@ const History = () => {
   const handleDelete = (jobId) => {
     deleteJob(jobId)
       .then((response) => {
+        setOpenSnackbar(true);
+        setSnackbarMessage('Job has been deleted successfully');
         getCompletedJobs()
           .then((response) => {
             setJobs(response.data);
-            setOpenSnackbar(true);
-            setSnackbarMessage('Job has been deleted successfully');
           })
       })
       .catch((err) => {
