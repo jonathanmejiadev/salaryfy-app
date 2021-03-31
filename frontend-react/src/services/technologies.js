@@ -1,33 +1,40 @@
+import angular from '../assets/img/technologies/angular.png';
+import react from '../assets/img/technologies/react1.png';
+import nodejs from '../assets/img/technologies/nodejs.png';
+import python from '../assets/img/technologies/python.png';
+import mysql from '../assets/img/technologies/mysql.png';
+import mongodb from '../assets/img/technologies/mongodb.png';
+
 const technologies = [
     {
         key: 1,
         label: 'Angular',
-        src: 'https://angular.kr/assets/images/logos/angular/angular.png'
+        src: angular
     },
     {
         key: 2,
         label: 'React',
-        src: 'https://cdn.iconscout.com/icon/free/png-256/react-3-1175109.png'
+        src: react
     },
     {
         key: 3,
         label: 'NodeJs',
-        src: 'https://cdn.iconscout.com/icon/free/png-256/node-js-1174925.png'
+        src: nodejs
     },
     {
         key: 4,
         label: 'Python',
-        src: 'https://cdn.iconscout.com/icon/free/png-256/python-14-569257.png'
+        src: python
     },
     {
         key: 5,
         label: 'MongoDB',
-        src: 'https://victorroblesweb.es/wp-content/uploads/2016/11/mongodb.png'
+        src: mongodb
     },
     {
         key: 6,
         label: 'MySql',
-        src: 'https://cdn.iconscout.com/icon/free/png-256/mysql-21-1174941.png'
+        src: mysql
     }
 ];
 

@@ -9,6 +9,7 @@ import Container from '@material-ui/core/Container';
 //import { useHistory } from 'react-router';
 import logo from '../../assets/img/login/time128.png';
 import Snackbar from '../../components/Snackbar/Snackbar';
+import { registerService } from '../../services/login';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -50,10 +51,16 @@ const Register = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         //if user not exists 
-        setOpenSnackbar(true);
         setRegisterData({ username: '', email: '', password: '' });
         //history.push('/login');
         //else alert error
+        registerService(registerData)
+            .then(response => {
+                setOpenSnackbar(true);
+            })
+            .then(err => {
+                console.log(err);
+            });
     };
 
     const handleCloseSnackbar = () => {

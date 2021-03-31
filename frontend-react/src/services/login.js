@@ -18,3 +18,12 @@ export const loginService = (user) => {
         })
 
 };
+
+export const registerService = (user) => {
+    return Axios.post(`${base_api}/register`, user)
+        .then(response => {
+            return response.data;
+        }).catch(error => {
+            return error;
+        })
+}
