@@ -54,7 +54,7 @@ const Job = () => {
   const [pricePerHour, setPricePerHour] = useState(0);
   const [isTimerOn, setIsTimerOn] = useState(false);
   const history = useHistory();
-  const [earningsEach30sec, setEarningsEach30sec] = useState(0);
+  const [earningsEach30sec, setEarningsEach] = useState(0);
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [loading, setLoading] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
@@ -129,14 +129,17 @@ const Job = () => {
   };
 
   const calculateEarnings = () => {
-    if ((seconds + 1) % 30 === 0) {
+    const setEarningsEvery = 10; //seconds
+    if ((seconds + 1) % setEarningsEvery === 0) {
       setEarnings(twoDecimals(earnings + earningsEach30sec));
     }
   };
 
   const sumToEarnings = (pricePerHour) => {
-    const earnings30sec = pricePerHour / 60 / 2;
-    setEarningsEach30sec(twoDecimals(earnings30sec));
+    const oneHour = 60//minutes
+    const secondsDivider = 10; //seconds to divide with oneHour
+    const earnings = pricePerHour / oneHour / secondsDivider;
+    setEarningsEach(twoDecimals(earnings));
   };
 
   const twoDecimals = (number) => {
