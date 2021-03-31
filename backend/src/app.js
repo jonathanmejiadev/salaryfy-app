@@ -36,4 +36,3 @@ startApp();
 
 export default app;
 
-//"test" : "NODE_ENV=test nodemon --exec 'mocha -R min'"

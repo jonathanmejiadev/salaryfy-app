@@ -6,8 +6,6 @@ import app from '../app';
 *Testing get all users endpoint
 */
 
-//describe agrupa tests
-
 describe('GET /users', () => {
     it('respond with json containing a list of all users', done => {
         request(app)
@@ -93,18 +91,4 @@ describe('POST /products', () => {
             })
 
     })
-})
-
-/*
-describe('Express app', () => {
-
-    it('Handles GET request /api/greeting', app => {
-        request(app)
-            .get('/api/greeting')
-            .end((err, response) => {
-                assert(response.body.greeting === 'Hi Robots');
-                done();
-            })
-    })
-})
-*/
+});

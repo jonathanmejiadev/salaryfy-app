@@ -10,7 +10,6 @@ export const createJob = async (req, res) => {
     const time = '00:00:00';
     const completed = false;
     const date = moment().format('LL');
-    //console.log(user);
     const job = new Job({
         name: jobName,
         client: clientName,
@@ -23,7 +22,6 @@ export const createJob = async (req, res) => {
         userOwner: user._id,
         technologies
     });
-    console.log(job)
     try {
         await job.save();
         user.jobs.push(job);
@@ -41,7 +39,6 @@ export const createJob = async (req, res) => {
 
 export const getJobs = async (req, res) => {
     const { _id } = req.user;
-    //const user = await User.findById(_id).populate('jobs',);
     const jobs = await Job.find({ userOwner: _id, completed: false });
     return res.status(200).json({ success: true, data: jobs });
 };
@@ -62,9 +59,16 @@ export const updateJob = async (req, res) => {
 };
 
 export const deleteJob = async (req, res) => {
-    const jobId = req.params.id;
-    await Job.findByIdAndDelete(jobId);
-    return res.status(200).json({ success: true, message: 'Deleted job' })
+    try {
+        const jobId = req.params.id;
+        const user = req.user;
+        user.jobs = user.jobs.filter(job => job.toString() !== jobId);
+        await user.save();
+        await Job.findByIdAndDelete(jobId);
+        return res.status(200).json({ success: true, message: 'Deleted job' })
+    } catch (err) {
+        return res.status(500).json({ success: false, message: 'Job not deleted' });
+    }
 
 };
 
@@ -79,5 +83,5 @@ export const completeJob = async (req, res) => {
     //const completedDate = moment().format('LL');
     console.log(completed);
     const updatedJob = await Job.findByIdAndUpdate(jobId, { completed }, { new: true });
-    return res.status(200).json({ success: 'true', message: 'Job is now completed', data: updatedJob })
+    return res.status(200).json({ success: 'true', message: 'Job is now finished', data: updatedJob })
 };
