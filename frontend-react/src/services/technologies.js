@@ -22,7 +22,7 @@ const technologies = [
     {
         key: 5,
         label: 'MongoDB',
-        src: 'https://lh3.googleusercontent.com/proxy/-5XMJmGIKs8KClQezD_MF7YgHmYxNSjtjPHtwjMMrzxvWiQCxYdzJKz3h_q25L7iDSUA6tUKw5FrvyeacA'
+        src: 'https://victorroblesweb.es/wp-content/uploads/2016/11/mongodb.png'
     },
     {
         key: 6,

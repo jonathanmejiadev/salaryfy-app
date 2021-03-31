@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-const base_api = 'http://localhost:5000/v1';
+const base_api = 'https://salaryfy-api.herokuapp.com/v1';
 
 export const loginService = (user) => {
 

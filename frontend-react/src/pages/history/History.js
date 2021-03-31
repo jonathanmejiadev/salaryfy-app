@@ -19,6 +19,8 @@ import actions from "../../assets/img/history/touch.png";
 import back from "../../assets/img/history/reply.png";
 import remove from "../../assets/img/history/trash1.png";
 import Snackbar from '../../components/Snackbar/Snackbar';
+import { Alert } from "@material-ui/lab";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -87,6 +89,7 @@ const History = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
 
   useEffect(() => {
     setLoading(true);
@@ -107,6 +110,8 @@ const History = () => {
         getCompletedJobs()
           .then((response) => {
             setJobs(response.data);
+            setOpenSnackbar(true);
+            setSnackbarMessage('Your job has been returned!');
           })
       })
       .catch((err) => {
@@ -121,6 +126,7 @@ const History = () => {
           .then((response) => {
             setJobs(response.data);
             setOpenSnackbar(true);
+            setSnackbarMessage('Job has been deleted successfully');
           })
       })
       .catch((err) => {
@@ -141,105 +147,114 @@ const History = () => {
           <CircularProgress />
         </div>
       ) : (
+
         <div className="list-container">
-          <div className="grid-container">
-            <Grid container spacing={3}>
-              <Grid item xs={3} md={3} className="grid-item">
-                <img src={sensible} alt="app"></img>{" "}
-                <Typography
-                  className={classes.fontSizeGridHeader}
-                  variant="subtitle2"
-                >
-                  Jobs
+          {jobs.length === 0 ? (
+            <div className="alert-container">
+              <Alert severity="info">
+                No finished jobs yet!
+              </Alert>
+            </div>
+          ) : (
+            <div className="grid-container">
+              <Grid container spacing={3}>
+                <Grid item xs={3} md={3} className="grid-item">
+                  <img src={sensible} alt="app"></img>{" "}
+                  <Typography
+                    className={classes.fontSizeGridHeader}
+                    variant="subtitle2"
+                  >
+                    Jobs
                 </Typography>
-              </Grid>
-              <Grid item xs={3} md={3} className="grid-item">
-                <img src={businessman} alt="client-company"></img>
-                <Typography
-                  className={classes.fontSizeGridHeader}
-                  variant="subtitle2"
-                >
-                  Client
-                </Typography>
-              </Grid>
-              <Grid item xs={3} md={3} className="grid-item">
-                <img src={dollars} alt="earnings"></img>{" "}
-                <Typography
-                  className={classes.fontSizeGridHeader}
-                  variant="subtitle2"
-                >
-                  Earnings
-                </Typography>
-              </Grid>
-              <Grid item xs={3} md={3} className="grid-item">
-                <img src={actions} alt="actions"></img>
-                <Typography
-                  className={classes.fontSizeGridHeader}
-                  variant="subtitle2"
-                >
-                  Actions
-                </Typography>
-              </Grid>
-              <Grid item xs={12} md={12}>
-                <Divider
-                  style={{
-                    color: "white",
-                    background: "white",
-                    margin: "0 20px 0 20px",
-                  }}
-                ></Divider>
-              </Grid>
-              {jobs.map((job) => (
-                <Grid container spacing={3} key={job._id}>
-                  <Grid item xs={3} md={3} className="grid-list-item">
-                    <Typography
-                      className={classes.fontSizeGridItem}
-                      variant="body1"
-                      style={{ display: "flex", justifyContent: "center" }}
-                    >
-                      {job.name}
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={3} md={3} className="grid-list-item">
-                    <Typography
-                      className={classes.fontSizeGridItem}
-                      variant="body1"
-                    >
-                      {job.client}
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={3} md={3} className="grid-list-item">
-                    <Typography
-                      className={classes.fontSizeGridItemEarnings}
-                      variant="body1"
-                    >{`$ ${job.earnings}`}</Typography>
-                  </Grid>
-                  <Grid item xs={3} md={3} className="grid-list-item">
-                    <Tooltip title="Back to Work">
-                      <IconButton
-                        edge="end"
-                        onClick={() => handleBackToWork(job._id)}
-                      >
-                        <img src={back} alt="back" className="action-button" />
-                      </IconButton>
-                    </Tooltip>
-                    <Tooltip title="Delete">
-                      <IconButton onClick={() => handleDelete(job._id)}>
-                        <img
-                          src={remove}
-                          alt="delete"
-                          className="action-button"
-                        />
-                      </IconButton>
-                    </Tooltip>
-                  </Grid>
                 </Grid>
-              ))}
-            </Grid>
-          </div>
+                <Grid item xs={3} md={3} className="grid-item">
+                  <img src={businessman} alt="client-company"></img>
+                  <Typography
+                    className={classes.fontSizeGridHeader}
+                    variant="subtitle2"
+                  >
+                    Client
+                </Typography>
+                </Grid>
+                <Grid item xs={3} md={3} className="grid-item">
+                  <img src={dollars} alt="earnings"></img>{" "}
+                  <Typography
+                    className={classes.fontSizeGridHeader}
+                    variant="subtitle2"
+                  >
+                    Earnings
+                </Typography>
+                </Grid>
+                <Grid item xs={3} md={3} className="grid-item">
+                  <img src={actions} alt="actions"></img>
+                  <Typography
+                    className={classes.fontSizeGridHeader}
+                    variant="subtitle2"
+                  >
+                    Actions
+                </Typography>
+                </Grid>
+                <Grid item xs={12} md={12}>
+                  <Divider
+                    style={{
+                      color: "white",
+                      background: "white",
+                      margin: "0 20px 0 20px",
+                    }}
+                  ></Divider>
+                </Grid>
+                {(jobs.map((job) => (
+                  <Grid container spacing={3} key={job._id}>
+                    <Grid item xs={3} md={3} className="grid-list-item">
+                      <Typography
+                        className={classes.fontSizeGridItem}
+                        variant="body1"
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        {job.name}
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={3} md={3} className="grid-list-item">
+                      <Typography
+                        className={classes.fontSizeGridItem}
+                        variant="body1"
+                      >
+                        {job.client}
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={3} md={3} className="grid-list-item">
+                      <Typography
+                        className={classes.fontSizeGridItemEarnings}
+                        variant="body1"
+                      >{`$ ${job.earnings}`}</Typography>
+                    </Grid>
+                    <Grid item xs={3} md={3} className="grid-list-item">
+                      <Tooltip title="Back to Work">
+                        <IconButton
+                          edge="end"
+                          onClick={() => handleBackToWork(job._id)}
+                        >
+                          <img src={back} alt="back" className="action-button" />
+                        </IconButton>
+                      </Tooltip>
+                      <Tooltip title="Delete">
+                        <IconButton onClick={() => handleDelete(job._id)}>
+                          <img
+                            src={remove}
+                            alt="delete"
+                            className="action-button"
+                          />
+                        </IconButton>
+                      </Tooltip>
+                    </Grid>
+                  </Grid>
+                )))}
+              </Grid>
+            </div>)
+          }
         </div>
       )}
-      <Snackbar open={openSnackbar} handleClose={handleCloseSnackbar} message={'Job has been deleted successfully'} />
+      <Snackbar open={openSnackbar} handleClose={handleCloseSnackbar} message={snackbarMessage} />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-const api_url = 'http://localhost:5000/v1/jobs';
+const api_url = 'https://salaryfy-api.herokuapp.com/v1/jobs';
 
 export const getJobs = () => {
 
@@ -36,7 +36,6 @@ export const createJob = (jobId) => {
         }
     })
         .then(response => {
-            //console.log(response);
             return response.data;
         })
         .catch(err => {

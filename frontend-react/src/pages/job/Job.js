@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams, withRouter } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import "./Job.css";
 import { getJob, updateJob } from "../../services/job";
-import {
-  Grid,
-  makeStyles,
-  IconButton,
-  Tooltip,
-  Fab,
-} from "@material-ui/core";
+import { Grid, makeStyles, IconButton, Tooltip, Fab, } from "@material-ui/core";
 import stop from "../../assets/img/job/stop11.png";
 import playbutton from "../../assets/img/job/play11.png";
 import dollars from "../../assets/img/job/dollars1.png";
@@ -19,6 +13,7 @@ import workingmoney from "../../assets/img/job/working-time.png";
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import Snackbar from '../../components/Snackbar/Snackbar';
 import client from '../../assets/img/history/businessman2.png';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,8 +56,12 @@ const Job = () => {
   const history = useHistory();
   const [earningsEach30sec, setEarningsEach30sec] = useState(0);
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [typeSnackbar, setTypeSnackbar] = useState('');
 
   useEffect(() => {
+    setLoading(true);
     getJob(id)
       .then((response) => {
         const { name, earnings, pricePerHour, seconds, time, client } = response.data;
@@ -73,6 +72,7 @@ const Job = () => {
         setSeconds(seconds);
         setTime(time);
         sumToEarnings(pricePerHour);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -110,6 +110,9 @@ const Job = () => {
       .then((response) => {
         //console.log(response);
         //Snackbar message: your working time has been saved
+        setSnackbarMessage('Your working time has been saved');
+        setTypeSnackbar('success');
+        setOpenSnackbar(true);
       })
       .catch((err) => {
         console.log(err);
@@ -153,6 +156,8 @@ const Job = () => {
         <Tooltip title="Back">
           <Fab color="primary" aria-label="add" onClick={() => {
             if (isTimerOn) {
+              setSnackbarMessage('You need to stop the timer first!');
+              setTypeSnackbar('error');
               setOpenSnackbar(true);
               return; //snackbar alert danger
             } else {
@@ -163,7 +168,11 @@ const Job = () => {
           </Fab>
         </Tooltip>
       </div>
-      {jobName.length !== 0 && (
+      { loading === true ? (
+        <div className="loading">
+          <CircularProgress />
+        </div>
+      ) : (
         <Container maxWidth="sm">
           <div className="job-content">
             <Grid spacing={2} container>
@@ -220,9 +229,9 @@ const Job = () => {
           </div>
         </Container>
       )}
-      <Snackbar open={openSnackbar} handleClose={handleCloseSnackbar} message={'You need to stop the timer first!'} type={'error'} />
+      <Snackbar open={openSnackbar} handleClose={handleCloseSnackbar} message={snackbarMessage} type={typeSnackbar} />
     </div>
   );
 };
 
-export default withRouter(Job);
+export default Job;

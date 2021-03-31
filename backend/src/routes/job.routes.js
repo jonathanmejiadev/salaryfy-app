@@ -1,14 +1,14 @@
 import { Router } from 'express';
 import * as jobCtrl from '../controllers/job.controllers';
 
-const router = Router();
+const jobRouter = Router();
 
-router.get('/completed', jobCtrl.getCompletedJobs);
-router.put('/complete/:id', jobCtrl.completeJob);
-router.get('/', jobCtrl.getJobs);
-router.get('/:id', jobCtrl.getJob);
-router.post('/', jobCtrl.createJob);
-router.put('/:id', jobCtrl.updateJob);
-router.delete('/:id', jobCtrl.deleteJob);
+jobRouter.get('/completed', jobCtrl.getCompletedJobs);
+jobRouter.put('/complete/:id', jobCtrl.completeJob);
+jobRouter.get('/', jobCtrl.getJobs);
+jobRouter.get('/:id', jobCtrl.getJob);
+jobRouter.post('/', jobCtrl.createJob);
+jobRouter.put('/:id', jobCtrl.updateJob);
+jobRouter.delete('/:id', jobCtrl.deleteJob);
 
-export default router;
+export default jobRouter;

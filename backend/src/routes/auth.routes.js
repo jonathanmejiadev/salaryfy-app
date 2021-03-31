@@ -4,10 +4,10 @@ import { checkUserEmailExists } from '../middlewares/auth';
 import { passportJwtGuard } from '../middlewares/auth-guard';
 
 
-const router = Router();
+const authRouter = Router();
 
-router.post('/register', checkUserEmailExists, authCtrl.register);
-router.post('/login', authCtrl.login);
-router.get('/profile', passportJwtGuard, authCtrl.profile);
+authRouter.post('/register', checkUserEmailExists, authCtrl.register);
+authRouter.post('/login', authCtrl.login);
+authRouter.get('/profile', passportJwtGuard, authCtrl.profile);
 
-export default router;
+export default authRouter;
