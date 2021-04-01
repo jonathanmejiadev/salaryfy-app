@@ -87,110 +87,115 @@ const Login = () => {
     return (
         <>
             {loading ? (
-                <div className="login-loading">
-                    <CircularProgress />
-                </div>
-            ) : (
-                <Container component="main" maxWidth="xs" className="login-container">
+                <>
                     <CssBaseline />
-
-                    <div className={classes.paper}>
-                        <div className="login-title">
-                            <img src={logo} alt="logo"></img>
-                            <h1>SALARYFY</h1>
-                        </div>
-                        {error === true &&
-                            <Alert severity="error" className="alert-error">Username or password is incorrect!</Alert>
-                        }
-                        <form className={classes.form} noValidate onSubmit={handleSubmit}>
-                            <Grid container spacing={2}>
-                                <Grid item xs={12}>
-                                    <TextField
-                                        autoComplete="off"
-                                        name="username"
-                                        variant="outlined"
-                                        required
-                                        fullWidth
-                                        id="username"
-                                        label="Username"
-                                        autoFocus
-                                        value={username}
-                                        onChange={(e) => setUsername(e.target.value)}
-                                    />
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <TextField
-                                        variant="outlined"
-                                        required
-                                        fullWidth
-                                        name="password"
-                                        label="Password"
-                                        type="password"
-                                        id="password"
-                                        autoComplete="current-password"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                    />
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <FormControlLabel
-                                        control={<Checkbox value="remember" color="primary" />}
-                                        label="Remember me"
-                                    />
-                                </Grid>
-                            </Grid>
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                color="secondary"
-                                className={classes.submit}
-                            >
-                                Sign In
-                        </Button>
-                            <Grid container justify="flex-end">
-                                <Grid item xs>
-                                    <Link href="#" variant="body2">
-                                        Forgot password?
-                  </Link>
-                                </Grid>
-                                <Grid item>
-                                    <Link href="/register" variant="body2">
-                                        Dont't have an account? Sign up
-                                </Link>
-                                </Grid>
-                            </Grid>
-                        </form>
+                    <div className="login-loading">
+                        <CircularProgress />
                     </div>
-                </Container >
-            )}
-            <div className="recruiter-info">
-                <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
-                    Click me!!
-      </Button>
-                <Popover
-                    id={id}
-                    open={open}
-                    anchorEl={anchorEl}
-                    onClose={handleClose}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'center',
-                    }}
-                >
-                    <Typography className={classes.typography}>
-                        Hello there! If you are a recruiter or just want to see functionalities please use this account
+                </>
+            ) : (
+                <>
+                    <Container component="main" maxWidth="xs" className="login-container">
+                        <CssBaseline />
+
+                        <div className={classes.paper}>
+                            <div className="login-title">
+                                <img src={logo} alt="logo"></img>
+                                <h1>SALARYFY</h1>
+                            </div>
+                            {error === true &&
+                                <Alert severity="error" className="alert-error">Username or password is incorrect!</Alert>
+                            }
+                            <form className={classes.form} noValidate onSubmit={handleSubmit}>
+                                <Grid container spacing={2}>
+                                    <Grid item xs={12}>
+                                        <TextField
+                                            autoComplete="off"
+                                            name="username"
+                                            variant="outlined"
+                                            required
+                                            fullWidth
+                                            id="username"
+                                            label="Username"
+                                            autoFocus
+                                            value={username}
+                                            onChange={(e) => setUsername(e.target.value)}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <TextField
+                                            variant="outlined"
+                                            required
+                                            fullWidth
+                                            name="password"
+                                            label="Password"
+                                            type="password"
+                                            id="password"
+                                            autoComplete="current-password"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <FormControlLabel
+                                            control={<Checkbox value="remember" color="primary" />}
+                                            label="Remember me"
+                                        />
+                                    </Grid>
+                                </Grid>
+                                <Button
+                                    type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    color="secondary"
+                                    className={classes.submit}
+                                >
+                                    Sign In
+                        </Button>
+                                <Grid container justify="flex-end">
+                                    <Grid item xs>
+                                        <Link href="#" variant="body2">
+                                            Forgot password?
+                  </Link>
+                                    </Grid>
+                                    <Grid item>
+                                        <Link href="/register" variant="body2">
+                                            Dont't have an account? Sign up
+                                </Link>
+                                    </Grid>
+                                </Grid>
+                            </form>
+                        </div>
+                    </Container >
+                    <div className="recruiter-info">
+                        <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
+                            Click me!!
+                </Button>
+                        <Popover
+                            id={id}
+                            open={open}
+                            anchorEl={anchorEl}
+                            onClose={handleClose}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'center',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'center',
+                            }}
+                        >
+                            <Typography className={classes.typography}>
+                                Hello there! If you are a recruiter or just want to see functionalities please use this account
                         <br />
                         ( username: recruiter password:123456 ) otherwise you can register.
                         <br />
                         This is not the final version, some features to be added soon.
                     </Typography>
-                </Popover>
-            </div>
+                        </Popover>
+                    </div>
+                </>
+            )}
         </>
     );
 }
