@@ -15,7 +15,7 @@ import Alert from '@material-ui/lab/Alert';
 import './Login.css';
 import logo from '../../assets/img/login/time128.png';
 import Popover from '@material-ui/core/Popover';
-import { Typography } from '@material-ui/core';
+import { CircularProgress, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -49,20 +49,26 @@ const Login = () => {
     const [error, setError] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setLoading(true);
         const userFormData = { username, password };
         const { token, user } = await loginService(userFormData);
+
         if (token) {
+            setLoading(false);
             setError(false);
             setAuth({ userAuth: user, isAuth: true });
             localStorage.setItem('token', token);
             localStorage.setItem('user', user);
             history.push('/');
         } else {
+            setLoading(false);
             setError(true);
         }
+
     };
 
     //---------------- Temporary pop-up message
@@ -80,77 +86,84 @@ const Login = () => {
 
     return (
         <>
-            <Container component="main" maxWidth="xs" className="login-container">
-                <CssBaseline />
-                <div className={classes.paper}>
-                    <div className="login-title">
-                        <img src={logo} alt="logo"></img>
-                        <h1>SALARYFY</h1>
-                    </div>
-                    {error === true &&
-                        <Alert severity="error" className="alert-error">Username or password is incorrect!</Alert>
-                    }
-                    <form className={classes.form} noValidate onSubmit={handleSubmit}>
-                        <Grid container spacing={2}>
-                            <Grid item xs={12}>
-                                <TextField
-                                    autoComplete="off"
-                                    name="username"
-                                    variant="outlined"
-                                    required
-                                    fullWidth
-                                    id="username"
-                                    label="Username"
-                                    autoFocus
-                                    value={username}
-                                    onChange={(e) => setUsername(e.target.value)}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    variant="outlined"
-                                    required
-                                    fullWidth
-                                    name="password"
-                                    label="Password"
-                                    type="password"
-                                    id="password"
-                                    autoComplete="current-password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <FormControlLabel
-                                    control={<Checkbox value="remember" color="primary" />}
-                                    label="Remember me"
-                                />
-                            </Grid>
-                        </Grid>
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="secondary"
-                            className={classes.submit}
-                        >
-                            Sign In
-                    </Button>
-                        <Grid container justify="flex-end">
-                            <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    Forgot password?
-              </Link>
-                            </Grid>
-                            <Grid item>
-                                <Link href="/register" variant="body2">
-                                    Dont't have an account? Sign up
-                            </Link>
-                            </Grid>
-                        </Grid>
-                    </form>
+            {loading ? (
+                <div className="login-loading">
+                    <CircularProgress />
                 </div>
-            </Container >
+            ) : (
+                <Container component="main" maxWidth="xs" className="login-container">
+                    <CssBaseline />
+
+                    <div className={classes.paper}>
+                        <div className="login-title">
+                            <img src={logo} alt="logo"></img>
+                            <h1>SALARYFY</h1>
+                        </div>
+                        {error === true &&
+                            <Alert severity="error" className="alert-error">Username or password is incorrect!</Alert>
+                        }
+                        <form className={classes.form} noValidate onSubmit={handleSubmit}>
+                            <Grid container spacing={2}>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        autoComplete="off"
+                                        name="username"
+                                        variant="outlined"
+                                        required
+                                        fullWidth
+                                        id="username"
+                                        label="Username"
+                                        autoFocus
+                                        value={username}
+                                        onChange={(e) => setUsername(e.target.value)}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        variant="outlined"
+                                        required
+                                        fullWidth
+                                        name="password"
+                                        label="Password"
+                                        type="password"
+                                        id="password"
+                                        autoComplete="current-password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <FormControlLabel
+                                        control={<Checkbox value="remember" color="primary" />}
+                                        label="Remember me"
+                                    />
+                                </Grid>
+                            </Grid>
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                color="secondary"
+                                className={classes.submit}
+                            >
+                                Sign In
+                        </Button>
+                            <Grid container justify="flex-end">
+                                <Grid item xs>
+                                    <Link href="#" variant="body2">
+                                        Forgot password?
+                  </Link>
+                                </Grid>
+                                <Grid item>
+                                    <Link href="/register" variant="body2">
+                                        Dont't have an account? Sign up
+                                </Link>
+                                </Grid>
+                            </Grid>
+                        </form>
+                    </div>
+                </Container >
+            )}
             <div className="recruiter-info">
                 <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
                     Click me!!
@@ -174,7 +187,7 @@ const Login = () => {
                         <br />
                         ( username: recruiter password:123456 ) otherwise you can register.
                         <br />
-                        This is not the final version, it needs validations and some features to be added soon.
+                        This is not the final version, some features to be added soon.
                     </Typography>
                 </Popover>
             </div>

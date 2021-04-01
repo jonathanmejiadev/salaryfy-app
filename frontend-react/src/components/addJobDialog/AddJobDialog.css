@@ -1,7 +1,7 @@
 .dialog-container {
   background-color: #1f3b70;
   border-top: 4px solid #07edb0;
-  border-radius: 7px;
+  min-height: 500px;
 }
 
 .dialog-container .select {
@@ -9,9 +9,16 @@
   margin-bottom: 8px;
 }
 
-.dialog-container .chip {
+.dialog-container .tech-chip {
   margin-right: 7px;
   margin-bottom: 7px;
+}
+
+.dialog-container .buttons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 20px 15px 15px 0;
 }
 
 .dialog-title {
@@ -21,4 +28,15 @@
 
 .dialog-subtitle {
   text-align: center;
+}
+
+@media only screen and (max-width: 400px) {
+  .dialog-container {
+    height: auto;
+    min-height: 450px;
+  }
+
+  .dialog-container .tech-chips {
+    margin-bottom: 55px;
+  }
 }

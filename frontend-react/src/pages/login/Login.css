@@ -1,5 +1,13 @@
+.login-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .login-container {
   margin-top: 150px;
+  position: relative;
 }
 
 .login-title {

@@ -20,7 +20,7 @@ import back from "../../assets/img/history/reply.png";
 import remove from "../../assets/img/history/trash1.png";
 import Snackbar from '../../components/Snackbar/Snackbar';
 import { Alert } from "@material-ui/lab";
-
+import { useConfirm } from "material-ui-confirm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -90,6 +90,7 @@ const History = () => {
   const [loading, setLoading] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
+  const confirm = useConfirm();
 
   useEffect(() => {
     setLoading(true);
@@ -107,10 +108,10 @@ const History = () => {
   const handleBackToWork = (jobId) => {
     completeJob(jobId, false)
       .then((response) => {
-        setOpenSnackbar(true);
         setSnackbarMessage('Your job has been returned!');
         getCompletedJobs()
           .then((response) => {
+            setOpenSnackbar(true);
             setJobs(response.data);
           })
       })
@@ -120,18 +121,26 @@ const History = () => {
   };
 
   const handleDelete = (jobId) => {
-    deleteJob(jobId)
-      .then((response) => {
-        setOpenSnackbar(true);
-        setSnackbarMessage('Job has been deleted successfully');
-        getCompletedJobs()
-          .then((response) => {
-            setJobs(response.data);
-          })
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    confirm({
+      title: 'Are you sure?',
+      description: `This will permanently delete the job.`,
+      dialogProps: { PaperProps: { style: { backgroundColor: '#1f3b70', boxShadow: 'none', } } }
+    }).then(() => {
+      deleteJob(jobId)
+        .then((response) => {
+          setOpenSnackbar(true);
+          setSnackbarMessage('Job has been deleted successfully');
+          getCompletedJobs()
+            .then((response) => {
+              setJobs(response.data);
+            })
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }).catch(() => {
+      //console.log('cancel');
+    })
   };
 
   const handleCloseSnackbar = () => {

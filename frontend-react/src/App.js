@@ -2,6 +2,7 @@
 import AppRouter from './routers/AppRouter';
 import { ThemeProvider } from '@material-ui/core/styles'
 import { unstable_createMuiStrictModeTheme as createMuiTheme } from '@material-ui/core';
+import { ConfirmProvider } from "material-ui-confirm";
 
 const theme = createMuiTheme({
   palette: {
@@ -25,7 +26,9 @@ const theme = createMuiTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <AppRouter />
+      <ConfirmProvider>
+        <AppRouter />
+      </ConfirmProvider>
     </ThemeProvider>
   );
 };

@@ -13,8 +13,8 @@ export const loginService = (user) => {
             return { token: `${type_token} ${access_token}`, user: user.username };
         })
         .catch(error => {
-            //console.log(error);
-            return error;
+            //console.log(error.response);
+            return error.response;
         })
 
 };
@@ -22,8 +22,9 @@ export const loginService = (user) => {
 export const registerService = (user) => {
     return Axios.post(`${base_api}/register`, user)
         .then(response => {
-            return response.data;
+            return response;
         }).catch(error => {
-            return error;
+            //console.log(error.response);
+            return error.response;
         })
 }
