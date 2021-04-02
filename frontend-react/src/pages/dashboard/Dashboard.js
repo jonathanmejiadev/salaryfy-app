@@ -12,7 +12,7 @@ import { getJobs } from '../../services/job';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import AddJobDialog from '../../components/addJobDialog/AddJobDialog';
+import AddJobDialog from '../../components/add-job-dialog/AddJobDialog';
 import { Alert } from '@material-ui/lab';
 import Snackbar from '../../components/Snackbar/Snackbar';
 

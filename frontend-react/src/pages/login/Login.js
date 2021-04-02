@@ -187,11 +187,11 @@ const Login = () => {
                         >
                             <Typography className={classes.typography}>
                                 Hello there! If you are a recruiter or just want to see functionalities please use this account
-                        <br />
-                        ( username: recruiter password:123456 ) otherwise you can register.
-                        <br />
-                        This is not the final version, some features to be added soon.
-                    </Typography>
+                                <br />
+                                ( username: recruiter password:123456 ) otherwise you can register.
+                                <br />
+                                This is not the final version, some features to be added soon.
+                            </Typography>
                         </Popover>
                     </div>
                 </>
