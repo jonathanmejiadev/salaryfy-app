@@ -5,8 +5,7 @@ Salaryfy App is an application for freelance developers, easily track your worki
 ##Table of contents
 
 - [Frontend](#frontend-)
-- [GitHub Actions](#github-actions-)
-- [Backend](#backend-)
+- [Backend](#backend-%EF%B8%8F)
   - [Getting Started](#getting-started-)
   - [Installation](#installation-)
   - [Run proyect](#run-proyect-)
@@ -17,8 +16,6 @@ Salaryfy App is an application for freelance developers, easily track your worki
 ---
 
 ## Frontend 🗡️
-
-#### GitHub Actions 🤖
 
 Soon.
 
@@ -71,6 +68,6 @@ These instructions will get you a copy of the project up and running on your loc
 - [helmet](https://www.npmjs.com/package/helmet) - Helps you secure your Express apps by setting various HTTP headers.
 - [http-errors](https://www.npmjs.com/package/@curveball/http-errors) - This package contains a list of standard HTTP exceptions for Typescript.
 
-## Contact
+## Contact ✉️
 
 If you want to contact me you can reach me at <jonathanmejia.ar@gmail.com>.
