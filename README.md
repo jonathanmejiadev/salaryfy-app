@@ -2,16 +2,16 @@
 
 Salaryfy App is an application for freelance developers, easily track your working time and earnings.
 
-##Table of contents
+### Table of contents
 
-- [Frontend](#frontend-)
+- [Frontend](#frontend-%EF%B8%8F)
 - [Backend](#backend-%EF%B8%8F)
-  - [Getting Started](#getting-started-)
-  - [Installation](#installation-)
-  - [Run proyect](#run-proyect-)
+  - [Getting Started](#getting-started-%EF%B8%8F)
+  - [Installation](#installation-%EF%B8%8F)
+  - [Run proyect](#run-proyect-%EF%B8%8F)
     - [Build](#build)
-- [Dependencies](#dependencies-)
-- [Contact](#contact)
+- [Dependencies](#dependencies-%EF%B8%8F)
+- [Contact](#contact-%EF%B8%8F)
 
 ---
 
