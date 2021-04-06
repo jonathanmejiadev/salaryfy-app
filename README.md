@@ -39,6 +39,7 @@ These instructions will get you a copy of the project up and running on your loc
   ```sh
   npm install
   ```
+- Read `env.example` and create a `.env` file with your environment variables.
 
 ### Run proyect 💻
 
