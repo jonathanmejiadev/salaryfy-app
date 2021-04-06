@@ -29,7 +29,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 - Clone the repo
   ```sh
-  git clone https://github.com/jonathanmejia-ar/typescript-typeorm-mysql.git
+  git clone https://github.com/jonathanmejia-ar/salaryfy-app.git
   ```
 - Enter backend directory
   ```sh
