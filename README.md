@@ -4,14 +4,14 @@ Salaryfy App is an application for freelance developers, easily track your worki
 
 ##Table of contents
 
-- [Frontend](#frontend)🗡️
-- [GitHub Actions 🤖](#github-actions-)
-- [Backend 🛡️](#backend----)
-  - [Getting Started 🚀](#getting-started---)
-  - [Installation 🔧](#installation---)
-  - [Run proyect 💻](#run-proyect---)
+- [Frontend](#frontend-)
+- [GitHub Actions](#github-actions-)
+- [Backend](#backend-)
+  - [Getting Started](#getting-started-)
+  - [Installation](#installation-)
+  - [Run proyect](#run-proyect-)
     - [Build](#build)
-- [Dependencies 🛠️](#dependencies----)
+- [Dependencies](#dependencies-)
 - [Contact](#contact)
 
 ---
