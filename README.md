@@ -1,9 +1,8 @@
 <div align="center">
     <img src="logo.png" alt="Logo" width="80" height="80">
     <h1 align="center">SALARYFY</h1>
+    <p>Salaryfy App is an application for freelance developers, easily track your working time and earnings.</p>
 </div>
-
-Salaryfy App is an application for freelance developers, easily track your working time and earnings.
 
 ### Table of contents
 
