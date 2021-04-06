@@ -65,7 +65,7 @@ npm install
 
 - [express](https://www.npmjs.com/package/express) - NodeJs Framework used for handling and routing HTTP requests.
 - [typeorm](https://www.npmjs.com/package/typeorm) - TypeORM is an ORM library that allows us to interact with databases through functions without sql commands.
-- [mysql](https://www.npmjs.com/package/mysql) - Relational database management system developed by Oracle.
+- [mysql](https://www.npmjs.com/package/mysql) - Relational database management system.
 - [passport](https://www.npmjs.com/package/passport) - Express-compatible authentication middleware for Node.js.
 - [passport-jwt](https://www.npmjs.com/package/passport-jwt) - Passport strategy for authenticating with a JSON Web Token.
 - [joi](https://www.npmjs.com/package/joi) - Powerful schema description language and data validator for JavaScript.
