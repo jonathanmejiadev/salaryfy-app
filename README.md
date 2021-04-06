@@ -27,19 +27,25 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installation 🔧
 
-- Clone the repo
-  ```sh
-  git clone https://github.com/jonathanmejia-ar/salaryfy-app.git
-  ```
-- Enter backend directory
-  ```sh
-  cd backend
-  ```
-- Install NPM packages
-  ```sh
-  npm install
-  ```
-- Read `env.example` and create a `.env` file with your environment variables.
+1. Clone the repo
+
+```sh
+git clone https://github.com/jonathanmejia-ar/salaryfy-app.git
+```
+
+2. Enter backend directory
+
+```sh
+cd backend
+```
+
+3. Install NPM packages
+
+```sh
+npm install
+```
+
+4. Read `env.example` and create a `.env` file with your environment variables.
 
 ### Run proyect 💻
 
