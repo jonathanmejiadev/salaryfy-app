@@ -63,6 +63,10 @@ npm install
   npm run build
   ```
 
+## Swagger API Documentation
+
+Soon.
+
 ## Dependencies 🛠️
 
 - [express](https://www.npmjs.com/package/express) - NodeJs Framework used for handling and routing HTTP requests.
