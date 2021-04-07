@@ -121,12 +121,11 @@
             }
           ],
           "requestBody": {
-              
-            "description": "A JSON object containing Register User information",
+            "description": "Completed job state",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/body"
+                  "$ref": "#/components/schemas/CompleteJob"
                 }
               }
             },
@@ -376,7 +375,7 @@
             }
           }
         },
-        "body": {
+        "CompleteJob": {
           "properties": {
             "completed": {
               "type": "boolean"
@@ -386,7 +385,7 @@
       },
       "requestBodies": {
         "Register": {
-          "description": "A JSON object containing Register User information",
+          "description": "Register User information",
           "content": {
             "application/json": {
               "schema": {
@@ -397,7 +396,7 @@
           "required": true
         },
         "Job": {
-          "description": "A JSON object containing Register User information",
+          "description": "Job object",
           "content": {
             "application/json": {
               "schema": {
