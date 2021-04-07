@@ -1,0 +1,20 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Salaryfy API REST.",
+      "description": "## This is an api that uses salaryfy client to do operations",
+      "version": "1.0.0",
+      "contact": {
+        "email": "jonathanmejia.ar@gmail.com"
+      }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:5000/v1",
+            "description": "Desarrollo"
+        },{
+            "url": "#",
+            "description": "Producción"
+        }
+    ]
+}
