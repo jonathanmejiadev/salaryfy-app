@@ -11,6 +11,13 @@ export const errorHandler = (err, req, res, next) => {
     logger.error(`${statusCode} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
     logger.error(err.stack);
     if (statusCode === 500) err.message = 'Server Internal Error';
-    return res.status(statusCode).json({ success: false, error: err.title, message: err.message, code: statusCode });
+    const error = {
+        success: false,
+        errors: {
+            code: statusCode,
+            message: err.message
+        }
+    };
+    return res.status(statusCode).json(error);
 
 };
