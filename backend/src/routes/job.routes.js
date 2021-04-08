@@ -9,7 +9,7 @@ jobRouter.put('/complete/:id', jobCtrl.completeJob);
 jobRouter.get('/:id', jobCtrl.getJob);
 jobRouter.get('/', jobCtrl.getJobs);
 jobRouter.put('/:id', jobCtrl.updateJob);
-jobRouter.post('/', postJobValidation) //, jobCtrl.createJob);
+jobRouter.post('/', postJobValidation, jobCtrl.createJob);
 jobRouter.delete('/:id', jobCtrl.deleteJob);
 
 export default jobRouter;

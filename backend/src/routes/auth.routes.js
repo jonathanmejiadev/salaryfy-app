@@ -6,7 +6,7 @@ import { postRegisterUserValidation } from '../middlewares/validations';
 
 const authRouter = Router();
 
-authRouter.post('/register', [postRegisterUserValidation, checkUserEmailExists])//, authCtrl.register);
+authRouter.post('/register', [postRegisterUserValidation, checkUserEmailExists], authCtrl.register);
 authRouter.post('/login', authCtrl.login);
 authRouter.get('/profile', passportJwtGuard, authCtrl.profile);
 
