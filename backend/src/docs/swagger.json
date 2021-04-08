@@ -154,8 +154,8 @@
           "tags": [
             "Jobs"
           ],
-          "summary": "Get all jobs",
-          "description": "Get a list of all current user jobs",
+          "summary": "Get incompleted jobs",
+          "description": "Get a list of all current user incompleted jobs",
           "responses": {
             "200": {
               "description": "OK"

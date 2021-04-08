@@ -67,7 +67,7 @@ npm install
 
 - Running by default in `http://localhost:3000/api-docs`
 
-- [Documentation](backend/src/docs/swagger.md)
+- [Markdown Documentation](backend/src/docs/swagger.md)
 
 ## Dependencies 🛠️
 
