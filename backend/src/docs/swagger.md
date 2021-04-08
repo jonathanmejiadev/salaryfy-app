@@ -102,11 +102,11 @@ Use to change completed state of a job
 
 ##### Summary
 
-Get all jobs
+Get incompleted jobs
 
 ##### Description
 
-Get a list of all current user jobs
+Get a list of all incompleted jobs
 
 ##### Responses
 
