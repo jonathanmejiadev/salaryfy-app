@@ -1,0 +1,1 @@
+export const TECHNOLOGIES = ['Angular', 'React', 'NodeJs', 'Python', 'MongoDB', 'MySql'];

@@ -41,7 +41,7 @@ UserSchema.methods.validatePassword = async function (password) {
 };
 
 UserSchema.methods.provideToken = function (id) {
-    const token = sign(id, config.SECRET);
+    const token = sign(id, config.jwt.secret);
     return token;
 };
 

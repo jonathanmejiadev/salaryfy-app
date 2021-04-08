@@ -3,7 +3,7 @@ import User from '../models/user.model';
 import moment from 'moment';
 
 export const createJob = async (req, res) => {
-    const { jobName, pricePerHour, clientName, technologies } = req.body;
+    const { name, pricePerHour, client, technologies } = req.body;
     const user = req.user;
     const earnings = 0;
     const seconds = 0;
@@ -11,8 +11,8 @@ export const createJob = async (req, res) => {
     const completed = false;
     const date = moment().format('LL');
     const job = new Job({
-        name: jobName,
-        client: clientName,
+        name,
+        client,
         pricePerHour,
         earnings,
         seconds,

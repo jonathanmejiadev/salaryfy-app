@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import * as jobCtrl from '../controllers/job.controllers';
-import { jobValidation, validateRules } from '../validations'
+import { postJobValidation } from '../middlewares/validations'
 
 const jobRouter = Router();
 
@@ -9,7 +9,7 @@ jobRouter.put('/complete/:id', jobCtrl.completeJob);
 jobRouter.get('/:id', jobCtrl.getJob);
 jobRouter.get('/', jobCtrl.getJobs);
 jobRouter.put('/:id', jobCtrl.updateJob);
-jobRouter.post('/', [jobValidation(), validateRules], jobCtrl.createJob);
+jobRouter.post('/', postJobValidation) //, jobCtrl.createJob);
 jobRouter.delete('/:id', jobCtrl.deleteJob);
 
 export default jobRouter;

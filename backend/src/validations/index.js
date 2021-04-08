@@ -1,9 +1,9 @@
-import { ValidationResult } from 'express-validator';
-export * from './user';
+import { validationResult } from 'express-validator';
+export * from './auth';
 export * from './job';
 
 export const validateRules = (req, res) => {
-    const errors = ValidationResult(req);
+    const errors = validationResult(req);
     if (errors.isEmpty()) {
         return next();
     }
