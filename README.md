@@ -12,6 +12,7 @@
   - [Installation](#installation-)
   - [Run proyect](#run-proyect-)
     - [Build](#build)
+- [Swagger API Documentation](#swagger-api-documentation)
 - [Dependencies](#dependencies-%EF%B8%8F)
 - [Contact](#contact-%EF%B8%8F)
 
@@ -65,7 +66,9 @@ npm install
 
 ## Swagger API Documentation
 
-- Running by default in `http://localhost:3000/api-docs`
+- Running by default in `http://localhost:3000/v1/api-docs`
+
+![swagger-image](backend/src/docs/images/swagger.png)
 
 - [Markdown Documentation](backend/src/docs/swagger.md)
 
