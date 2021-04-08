@@ -1,6 +1,3 @@
-import Job from '../models/job.model';
-import User from '../models/user.model';
-import moment from 'moment';
 import * as jobService from '../services/jobService';
 import { Success, SuccessMsg } from '../handlers/successHandler';
 
