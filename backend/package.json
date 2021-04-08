@@ -2,12 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.js",
+  "main": "src/index.js",
   "scripts": {
-    "dev": "nodemon src/app.js --exec babel-node",
-    "devdev": "nodemon src/index.js --exec babel-node",
+    "dev": "nodemon src/index.js --exec babel-node",
     "build": "babel src --out-dir dist",
-    "start": "node dist/app.js",
+    "start": "node dist/index.js",
     "test": "babel src --out-dir dist && mocha dist/tests/app.test.js --exit"
   },
   "keywords": [],
