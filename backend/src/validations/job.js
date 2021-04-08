@@ -11,6 +11,6 @@ export const jobValidation = () => {
             .isLength({ max: 15 }).withMessage('Client must be at most 15 characters')
             .matches(/^[\w\-\s]+$/).withMessage('Client can only contain alphanumeric characters'),
         body('pricePerHour')
-            .isNumeric().withMessage('Price per hour must be a number')
+            .isNumeric().withMessage('Price per hour must be a number'),
     ]
 };
