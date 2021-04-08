@@ -2,7 +2,7 @@ import { validationResult } from 'express-validator';
 export * from './auth';
 export * from './job';
 
-export const validateRules = (req, res) => {
+export const validateRules = (req, res, next) => {
     const errors = validationResult(req);
     if (errors.isEmpty()) {
         return next();

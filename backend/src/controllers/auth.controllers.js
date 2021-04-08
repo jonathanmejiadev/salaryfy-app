@@ -1,49 +1,26 @@
-import User from '../models/user.model';
+import { Success, SuccessToken } from '../handlers/successHandler';
+import * as authService from '../services/authService';
 
-export const register = async (req, res) => {
+export const registerUser = async (req, res, next) => {
     try {
-        const { username, email, password } = req.body;
-        const userData = new User({ username, email, password });
-        await userData.save();
-        return res.status(201).json({
-            success: true,
-            message: 'User registration successfully',
-            data: userData
-        });
+        const user = req.body;
+        const newUser = await authService.register(user);
+        return res.status(201).json(new Success(newUser));
     } catch (err) {
-        res.status(500).json({ err: err.message });
-    }
+        next(err);
+    };
 };
 
-export const login = async (req, res) => {
+export const loginUser = async (req, res, next) => {
     try {
-        const { username, password } = req.body;
-        const user = await User.findOne({ username });
-        if (!user) return res.status(404).json({
-            success: false,
-            code: 404,
-            error: 'User not found'
-        });
-        const isValid = await user.validatePassword(password);
-        if (!isValid) return res.status(401).json({
-            success: false,
-            code: 401,
-            error: 'The password is incorrect'
-        });
-        const token = await user.provideToken({ id: user._id });
-        return res.status(200).json({
-            success: true,
-            message: 'Logged in successfully',
-            access_token: token,
-            type_token: 'Bearer'
-        });
+        const user = req.body;
+        const token = await authService.login(user);
+        return res.status(200).json(new SuccessToken(token, 'Bearer', 'Logged in successfully'));
     } catch (err) {
-        console.log(err);
-        res.status(500).json({ err: err });
-    }
+        next(err);
+    };
 };
 
 export const profile = (req, res) => {
-    console.log(req.user);
-    return res.status(200).json({ success: true, data: req.user });
+    return res.status(200).json(new Success(req.user));
 };
