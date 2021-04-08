@@ -65,7 +65,9 @@ npm install
 
 ## Swagger API Documentation
 
-Soon.
+- Running by default in `http://localhost:3000/api-docs`
+
+- [Documentation](backend/src/docs/swagger.md)
 
 ## Dependencies 🛠️
 

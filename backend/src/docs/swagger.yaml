@@ -1,0 +1,263 @@
+---
+openapi: 3.0.0
+info:
+  title: Salaryfy API REST.
+  description: This is an api that uses salaryfy client.
+  contact:
+    email: jonathanmejia.ar@gmail.com
+  version: 1.0.0
+servers:
+- url: http://localhost:5000/v1
+  description: Development
+- description: Production
+tags:
+- name: Auth
+  description: User Authentication
+- name: Jobs
+  description: Jobs CRUD operations
+paths:
+  /register:
+    post:
+      tags:
+      - Auth
+      summary: Register user
+      requestBody:
+        $ref: '#/components/requestBodies/Register'
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+        "409":
+          description: Conflict, username or email already exists
+  /login:
+    post:
+      tags:
+      - Auth
+      summary: Login user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized, username or password incorrect
+        "500":
+          description: Server Internal Error
+  /jobs/completed:
+    get:
+      tags:
+      - Jobs
+      summary: Completed jobs
+      description: Get a list of all completed jobs
+      responses:
+        "200":
+          description: OK
+        "500":
+          description: Server Internal Error
+      security:
+      - bearerAuth: []
+  /jobs/complete/{jobId}:
+    put:
+      tags:
+      - Jobs
+      summary: Complete a job
+      description: Use to change completed state of a job
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        description: Completed job state
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not found
+        "500":
+          description: Server Internal Error
+      security:
+      - bearerAuth: []
+  /jobs:
+    get:
+      tags:
+      - Jobs
+      summary: Get all jobs
+      description: Get a list of all current user jobs
+      responses:
+        "200":
+          description: OK
+        "500":
+          description: Server Internal Error
+      security:
+      - bearerAuth: []
+    post:
+      tags:
+      - Jobs
+      summary: Create job
+      requestBody:
+        $ref: '#/components/requestBodies/Job'
+      responses:
+        "200":
+          description: OK
+        "422":
+          description: Unprocessable Entity, didn't pass the job validation
+        "500":
+          description: Server Internal Error
+      security:
+      - bearerAuth: []
+  /jobs/{jobId}:
+    get:
+      tags:
+      - Jobs
+      summary: Get a job
+      description: Use to get a single job
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+        "500":
+          description: Server Internal Error
+      security:
+      - bearerAuth: []
+    put:
+      tags:
+      - Jobs
+      summary: Update a job
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        $ref: '#/components/requestBodies/Job'
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+        "500":
+          description: Server Internal Error
+      security:
+      - bearerAuth: []
+    delete:
+      tags:
+      - Jobs
+      summary: Delete a job
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+        "500":
+          description: Server Internal Error
+      security:
+      - bearerAuth: []
+components:
+  schemas:
+    UserRegister:
+      required:
+      - email
+      - password
+      - username
+      type: object
+      properties:
+        username:
+          type: string
+          example: fakeuser
+        email:
+          type: string
+          example: fakeemail@gmail.com
+        password:
+          type: string
+          example: fakepass123
+    UserLogin:
+      required:
+      - password
+      - username
+      type: object
+      properties:
+        username:
+          type: string
+          example: fakeuser
+        password:
+          type: string
+          example: fakepass123
+    Job:
+      required:
+      - client
+      - name
+      - pricePerHour
+      type: object
+      properties:
+        name:
+          type: string
+          example: Ecommerce
+        client:
+          type: string
+          example: Nike
+        pricePerHour:
+          type: integer
+          example: 45
+        technologies:
+          type: array
+          items:
+            type: string
+            example: '["React","NodeJs"]'
+    body:
+      properties:
+        completed:
+          type: boolean
+  requestBodies:
+    Register:
+      description: Register User information
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserRegister'
+      required: true
+    Job:
+      description: Job object
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Job'
+      required: true
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
