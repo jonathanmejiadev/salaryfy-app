@@ -5,7 +5,7 @@ import config from '../config';
 
 const opts = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: config.SECRET
+    secretOrKey: config.jwt.secret
 };
 
 export default new Strategy(opts, async (payload, done) => {

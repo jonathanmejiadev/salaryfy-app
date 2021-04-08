@@ -5,10 +5,10 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import swaggerUi from 'swagger-ui-express';
+import passport from 'passport';
 import indexRouter from './routes/index.routes';
 import mongoConnect from './database';
 import config from './config';
-import passport from 'passport';
 import passportMiddleware from './middlewares/passport';
 import swaggerDoc from './docs/swagger.json';
 

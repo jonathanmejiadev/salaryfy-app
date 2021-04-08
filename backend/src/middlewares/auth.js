@@ -1,4 +1,5 @@
 import User from '../models/user.model';
+import logger from '../loaders/logger'
 
 export const checkUserEmailExists = async (req, res, next) => {
     try {
@@ -25,7 +26,7 @@ export const checkUserEmailExists = async (req, res, next) => {
         return next();
     }
     catch (err) {
-        console.log(err.message);
+        logger.error(err.message);
         next();
     }
 };

@@ -5,7 +5,7 @@ import jobRoutes from './job.routes';
 
 const indexRouter = Router();
 
-indexRouter.use('/', authRoutes);
 indexRouter.use('/jobs', passportJwtGuard, jobRoutes);
+indexRouter.use('/', authRoutes);
 
 export default indexRouter;
