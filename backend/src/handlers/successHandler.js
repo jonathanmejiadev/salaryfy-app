@@ -6,7 +6,7 @@ export class Success {
 };
 
 export class SuccessMsg {
-    constructor(data, message) {
+    constructor(message, data) {
         this.success = true;
         this.message = message;
         this.data = data;

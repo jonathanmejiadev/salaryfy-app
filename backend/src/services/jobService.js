@@ -1,14 +1,17 @@
 import JobRepository from '../repositories/jobRepository';
+import moment from 'moment';
+import createError from 'http-errors';
 
 const jobRepo = new JobRepository();
 
-export const create = async (name, client, pricePerHour, technologies, user) => {
+export const create = async (job, user) => {
+    const { name, pricePerHour, client, technologies } = job;
     const earnings = 0;
     const seconds = 0;
     const time = '00:00:00';
     const completed = false;
     const date = moment().format('LL');
-    const job = {
+    const jobObj = {
         name,
         client,
         pricePerHour,
@@ -20,7 +23,7 @@ export const create = async (name, client, pricePerHour, technologies, user) => 
         userOwner: user._id,
         technologies
     };
-    const createdJob = await jobRepo.save(job, user);
+    const createdJob = await jobRepo.save(jobObj, user);
     return createdJob;
 };
 
@@ -38,7 +41,7 @@ export const getById = async (jobId) => {
     return await jobRepo.get(jobId);
 };
 
-//change job completed property to completed(completed=true) or incompleted(completed=false) 
+//change job completed property to true or false
 export const complete = async (jobId, completed) => {
     return await jobRepo.update(jobId, { completed })
 };
@@ -47,6 +50,8 @@ export const updateById = async (jobId, jobUpdate) => {
     return await jobRepo.update(jobId, jobUpdate);
 };
 
-export const deleteById = async (jobId) => {
-    return await jobRepo.delete(jobId);
+export const deleteById = async (jobId, user) => {
+    const deletedJob = await jobRepo.delete(jobId, user);
+    if (!deletedJob) throw new createError(404, 'Job not found');
+    return;
 };

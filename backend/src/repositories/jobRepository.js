@@ -24,9 +24,17 @@ class JobRepository {
         return await Job.findByIdAndUpdate(jobId, jobUpdate, { new: true });
     }
 
-    async delete(jobId) {
-        return await Job.findByIdAndDelete(jobId);
-    }
+    async delete(jobId, user) {
+        try {
+            const result = await Job.findByIdAndDelete(jobId);
+            if (!result) return null;
+            user.jobs = user.jobs.filter(job => job.toString() !== jobId);
+            await user.save();
+            return true;
+        } catch (err) {
+            return null;
+        }
+    };
 
 };
 
