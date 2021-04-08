@@ -70,9 +70,11 @@ Soon.
 ## Dependencies 🛠️
 
 - [express](https://www.npmjs.com/package/express) - NodeJs Framework used for handling and routing HTTP requests.
+- [babeljs](https://babeljs.io/docs/en/usage) - Compile your JavaScript application code that uses ES2015+ syntax into code that works in current browsers.
 - [typeorm](https://www.npmjs.com/package/typeorm) - TypeORM is an ORM library that allows us to interact with databases through functions without sql commands.
 - [mysql](https://www.npmjs.com/package/mysql) - Relational database management system.
 - [passport](https://www.npmjs.com/package/passport) - Express-compatible authentication middleware for Node.js.
+- [winston](https://www.npmjs.com/package/winston) - Universal logging library with support for multiple transports.
 - [passport-jwt](https://www.npmjs.com/package/passport-jwt) - Passport strategy for authenticating with a JSON Web Token.
 - [joi](https://www.npmjs.com/package/joi) - Powerful schema description language and data validator for JavaScript.
 - [bcryptjs](https://www.npmjs.com/package/bcryptjs) - Library to help you hash passwords.
