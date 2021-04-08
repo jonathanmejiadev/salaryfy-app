@@ -1,5 +1,5 @@
 import { Success, SuccessToken } from '../handlers/successHandler';
-import * as authService from '../services/authService';
+import * as authService from '../services/auth.service';
 
 export const registerUser = async (req, res, next) => {
     try {

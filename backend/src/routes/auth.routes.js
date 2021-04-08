@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import * as authCtrl from '../controllers/auth.controllers';
 import { checkUserEmailExists } from '../middlewares/auth';
-import { passportJwtGuard } from '../middlewares/auth-guard';
+import { passportJwtGuard } from '../middlewares/authGuard';
 import { postRegisterUserValidation } from '../middlewares/validations';
 
 const authRouter = Router();

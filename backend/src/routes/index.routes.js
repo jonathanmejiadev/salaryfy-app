@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { passportJwtGuard } from '../middlewares/auth-guard';
+import { passportJwtGuard } from '../middlewares/authGuard';
 import authRoutes from './auth.routes';
 import jobRoutes from './job.routes';
 

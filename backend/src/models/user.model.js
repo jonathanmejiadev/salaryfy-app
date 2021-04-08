@@ -33,7 +33,7 @@ UserSchema.pre('save', async function (next) {
     const salt = await genSalt(10);
     const hashedPassword = await hash(user.password, salt);
     user.password = hashedPassword;
-    next();
+    return next();
 });
 
 UserSchema.methods.validatePassword = async function (password) {

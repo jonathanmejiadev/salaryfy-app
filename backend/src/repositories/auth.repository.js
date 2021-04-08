@@ -2,7 +2,7 @@ import User from '../models/user.model';
 
 class AuthRepository {
     constructor() {
-    }
+    };
 
     async save(user) {
         const createdUser = new User(user);
@@ -17,12 +17,12 @@ class AuthRepository {
 
     async update(id, user) {
         return await User.findByIdAndUpdate(id, user, { new: true });
-    }
+    };
 
     async remove(id) {
         return await User.findByIdAndDelete(id);
-    }
+    };
 
-}
+};
 
 export default AuthRepository;

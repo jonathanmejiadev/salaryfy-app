@@ -1,4 +1,4 @@
-import JobRepository from '../repositories/jobRepository';
+import JobRepository from '../repositories/job.repository';
 import moment from 'moment';
 import createError from 'http-errors';
 

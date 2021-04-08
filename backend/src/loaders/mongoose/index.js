@@ -13,5 +13,5 @@ export default async function mongooseConnection() {
         logger.info('MongoDB connection established successfully');
     } catch (err) {
         logger.error('Mongoose connection error: ', err);
-    }
+    };
 };

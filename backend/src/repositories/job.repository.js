@@ -2,7 +2,7 @@ import Job from '../models/job.model';
 
 class JobRepository {
     constructor() {
-    }
+    };
 
     async save(job, user) {
         const createdJob = new Job(job);
@@ -18,11 +18,11 @@ class JobRepository {
 
     async get(jobId) {
         return await Job.findById(jobId);
-    }
+    };
 
     async update(jobId, jobUpdate) {
         return await Job.findByIdAndUpdate(jobId, jobUpdate, { new: true });
-    }
+    };
 
     async delete(jobId, user) {
         try {
@@ -33,7 +33,7 @@ class JobRepository {
             return true;
         } catch (err) {
             return null;
-        }
+        };
     };
 
 };

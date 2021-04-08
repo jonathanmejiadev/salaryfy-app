@@ -1,6 +1,5 @@
-import * as jobService from '../services/jobService';
+import * as jobService from '../services/job.service';
 import { Success, SuccessMsg } from '../handlers/successHandler';
-
 
 export const createJob = async (req, res, next) => {
     try {

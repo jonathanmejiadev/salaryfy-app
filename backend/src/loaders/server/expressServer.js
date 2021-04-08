@@ -50,20 +50,20 @@ class ExpressServer {
 
     _error404NotFound() {
         this.app.use(errorNotFoundHandler);
-    }
+    };
 
     _errorHandler() {
         this.app.use(errorHandler);
-    }
+    };
 
     async start() {
         this.app.listen(config.port, (err) => {
             if (err) {
                 logger.error(err);
                 process.exit(1);
-            }
-        })
+            };
+        });
     };
-}
+};
 
 export default ExpressServer;

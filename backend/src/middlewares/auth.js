@@ -28,5 +28,5 @@ export const checkUserEmailExists = async (req, res, next) => {
     catch (err) {
         logger.error(err.message);
         next();
-    }
+    };
 };

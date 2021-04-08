@@ -6,7 +6,7 @@ export const validateRules = (req, res, next) => {
     const errors = validationResult(req);
     if (errors.isEmpty()) {
         return next();
-    }
+    };
     const errorsMsgs = errors.array().map(err => ({ [err.param]: err.msg }));
     const response = {
         success: false,

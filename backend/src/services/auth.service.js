@@ -1,4 +1,4 @@
-import AuthRepository from '../repositories/authRepository';
+import AuthRepository from '../repositories/auth.repository';
 import createError from 'http-errors';
 
 const authRepo = new AuthRepository();

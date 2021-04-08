@@ -13,9 +13,9 @@ export default new Strategy(opts, async (payload, done) => {
         const user = await User.findById(payload.id);
         if (!user) {
             return done(err, false);
-        }
+        };
         return done(null, user);
     } catch (err) {
         return done(null, false);
-    }
-})
+    };
+});

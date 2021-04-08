@@ -10,15 +10,12 @@ export class SuccessMsg {
         this.success = true;
         this.message = message;
         this.data = data;
-    }
+    };
 };
 
 export class SuccessToken {
     constructor(token, type, message) {
         this.success = true;
-        this.data = { message, access_token: token, type_token: type }
-        //this.message = message;
-        //this.access_token = token;
-        //this.type_token = type;
-    }
+        this.data = { message, access_token: token, type_token: type };
+    };
 };
