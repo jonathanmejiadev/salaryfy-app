@@ -4,7 +4,10 @@ import createError from 'http-errors';
 const authRepo = new AuthRepository();
 
 export const register = async (user) => {
-    return await authRepo.save(user);
+    let newUser = await authRepo.save(user);
+    newUser = newUser.toObject();
+    delete newUser.password;
+    return newUser;
 };
 
 export const login = async (user) => {
