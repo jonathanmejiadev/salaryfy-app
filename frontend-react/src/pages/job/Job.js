@@ -4,7 +4,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import "./Job.css";
 import { getJob, updateJob } from "../../services/job";
-import { Grid, makeStyles, IconButton, Tooltip, Fab, } from "@material-ui/core";
+import { Grid, makeStyles, IconButton, Tooltip, Fab, Typography, Popover, } from "@material-ui/core";
 import stop from "../../assets/img/job/stop11.png";
 import playbutton from "../../assets/img/job/play11.png";
 import dollars from "../../assets/img/job/dollars1.png";
@@ -14,6 +14,7 @@ import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import Snackbar from '../../components/Snackbar/Snackbar';
 import client from '../../assets/img/history/businessman2.png';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import InfoIcon from '@material-ui/icons/Info';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,6 +41,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "100%",
     backgroundColor: "#f0ec57",
     border: "2px solid #f0ec57",
+  },
+  typography: {
+    padding: theme.spacing(1),
+    color: 'white'
   },
 }));
 
@@ -150,6 +155,22 @@ const Job = () => {
     setOpenSnackbar(false);
   };
 
+  //---------------- Temporary pop-up message
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const idd = open ? 'simple-popover' : undefined;
+
+  //----------------
+
   return (
     <div className="job-container">
       <CssBaseline />
@@ -179,6 +200,31 @@ const Job = () => {
             <Grid spacing={2} container>
               <Grid item xs={12}>
                 <h1>{jobName}</h1>
+              </Grid>
+              <Grid item xs={12}>
+                <div className="info-button-container">
+                  <IconButton aria-label="info" onClick={handleClick}>
+                    <InfoIcon className="info-button" />
+                  </IconButton>
+                  <Popover
+                    id={idd}
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                      vertical: 'center',
+                      horizontal: 'left',
+                    }}
+                    transformOrigin={{
+                      vertical: 'center',
+                      horizontal: 'right',
+                    }}
+                    PaperProps={{ style: { backgroundColor: '#5095f7', boxShadow: 'none' } }}
+                  >
+                    <Typography className={classes.typography}>Earnings will be updated every 10 seconds.</Typography>
+                  </Popover>
+
+                </div>
               </Grid>
               <Grid item xs={6} className="grid-item">
                 <img src={client} alt="earnings" /> Client
@@ -228,6 +274,7 @@ const Job = () => {
               </Grid>
             </Grid>
           </div>
+
         </Container>
       )}
       <Snackbar open={openSnackbar} handleClose={handleCloseSnackbar} message={snackbarMessage} type={typeSnackbar} />

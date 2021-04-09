@@ -19,6 +19,16 @@
   padding: 20px;
   border-radius: 7px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  position: relative;
+}
+
+.info-button-container {
+  position: absolute;
+  right: 5%;
+  top: 15%;
+}
+.info-button {
+  font-size: 30px !important;
 }
 
 .grid-item {
