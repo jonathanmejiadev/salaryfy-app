@@ -45,7 +45,7 @@ Login user
 
 ##### Summary
 
-Get Completed jobs
+Get completed jobs
 
 ##### Description
 
