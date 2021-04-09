@@ -64,7 +64,7 @@ npm install
   npm run build
   ```
 
-## Swagger API Documentation
+## Swagger API Documentation 📄
 
 - Running by default in `http://localhost:3000/v1/api-docs`
 
