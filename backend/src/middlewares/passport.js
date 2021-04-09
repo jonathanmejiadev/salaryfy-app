@@ -10,7 +10,7 @@ const opts = {
 
 export default new Strategy(opts, async (payload, done) => {
     try {
-        const user = await User.findById(payload.id);
+        const user = await User.findById(payload.id, { password: false });
         if (!user) {
             return done(err, false);
         };
