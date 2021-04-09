@@ -119,19 +119,19 @@ const Cards = ({
             style={{ color: "white", fontWeight: "500", fontSize: "16px" }}
           >
             <Grid item xs={6}>
-              <span style={{ color: "white" }}>Earnings</span>
+              <span >Earnings</span>
             </Grid>
             <Grid item xs={6} className="card-data">
-              <span style={{ color: "#07EDB0" }}> {`$ ${earnings}`}</span>
+              <span> {`$ ${earnings}`}</span>
             </Grid>
             <Grid item xs={6}>
-              <span style={{ color: "white" }}>Working Time</span>
+              <span >Working Time</span>
             </Grid>
             <Grid item xs={6} className="card-data">
               {time}
             </Grid>
             <Grid item xs={6}>
-              <span style={{ color: "white" }}>Created at</span>
+              <span>Created at</span>
             </Grid>
             <Grid item xs={6} className="card-data">
               {date}

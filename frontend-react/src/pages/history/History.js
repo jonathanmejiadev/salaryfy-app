@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       fontSize: "1.1rem",
     },
-    color: "#06d6a0",
+    color: "white",
     textAlign: "center",
   },
 }));
