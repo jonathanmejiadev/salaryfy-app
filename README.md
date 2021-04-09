@@ -12,7 +12,7 @@
   - [Installation](#installation-)
   - [Run proyect](#run-proyect-)
     - [Build](#build)
-- [Swagger API Documentation](#swagger-api-documentation)
+- [Swagger API Documentation](#swagger-api-documentation-)
 - [Dependencies](#dependencies-%EF%B8%8F)
 - [Contact](#contact-%EF%B8%8F)
 
