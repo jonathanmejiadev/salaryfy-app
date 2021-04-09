@@ -126,7 +126,7 @@ const AddJobDialog = ({ openDialog, setOpenDialog }) => {
                             ]}
 
                         />
-                        <TextField
+                        <TextValidator
                             margin="dense"
                             id="pricePerHour"
                             label="Price per hour"
@@ -137,6 +137,11 @@ const AddJobDialog = ({ openDialog, setOpenDialog }) => {
                             autoComplete="off"
                             value={pricePerHour}
                             onChange={(e) => setPricePerHour(e.target.value)}
+                            validators={['minNumber:1', 'maxNumber:4999']}
+                            errorMessages={[
+                                'Price must be greater than 0',
+                                'Price must be less than 4999'
+                            ]}
                             InputProps={{
                                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 inputProps: { min: 1, max: 4999 }
