@@ -15,6 +15,8 @@ export default async () => {
         `);
 
     } catch (err) {
-        //handle err
+        logger.error(`### ⚠️ Server connection Error ⚠️ ### 
+                      ${err}
+                     `);
     };
 };
