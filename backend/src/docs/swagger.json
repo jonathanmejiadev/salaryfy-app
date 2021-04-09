@@ -84,7 +84,7 @@
           "tags": [
             "Jobs"
           ],
-          "summary": "Completed jobs",
+          "summary": "Get completed jobs",
           "description": "Get a list of all completed jobs",
           "responses": {
             "200": {
