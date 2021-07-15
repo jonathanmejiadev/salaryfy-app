@@ -76,17 +76,17 @@ npm install
 
 - [express](https://www.npmjs.com/package/express) - NodeJs Framework used for handling and routing HTTP requests.
 - [babeljs](https://babeljs.io/docs/en/usage) - Compile your JavaScript application code that uses ES2015+ syntax into code that works in current browsers.
-- [typeorm](https://www.npmjs.com/package/typeorm) - TypeORM is an ORM library that allows us to interact with databases through functions without sql commands.
-- [mysql](https://www.npmjs.com/package/mysql) - Relational database management system.
+- [mongoose](https://www.npmjs.com/package/mongoose) - Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment.
 - [passport](https://www.npmjs.com/package/passport) - Express-compatible authentication middleware for Node.js.
-- [winston](https://www.npmjs.com/package/winston) - Universal logging library with support for multiple transports.
 - [passport-jwt](https://www.npmjs.com/package/passport-jwt) - Passport strategy for authenticating with a JSON Web Token.
-- [joi](https://www.npmjs.com/package/joi) - Powerful schema description language and data validator for JavaScript.
+- [winston](https://www.npmjs.com/package/winston) - Universal logging library with support for multiple transports.
 - [bcryptjs](https://www.npmjs.com/package/bcryptjs) - Library to help you hash passwords.
 - [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) - Open JSON-based standard proposed by IETF for token creations.
-- [yup](https://www.npmjs.com/package/yup) - Yup is a JavaScript schema builder for value parsing and validation.
+- [express-validator](https://www.npmjs.com/package/express-validator) - An express.js middleware for validator.
 - [helmet](https://www.npmjs.com/package/helmet) - Helps you secure your Express apps by setting various HTTP headers.
+- [moment](https://www.npmjs.com/package/moment) - A JavaScript date library for parsing, validating, manipulating, and formatting dates.
 - [http-errors](https://www.npmjs.com/package/@curveball/http-errors) - This package contains a list of standard HTTP exceptions for Typescript.
+- [swagger-ui-express](https://www.npmjs.com/package/swagger-ui-express) - Allows you to serve auto-generated swagger-ui generated API docs from express, based on a swagger.json file.
 
 ## Contact ✉️
 
